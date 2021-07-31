@@ -5,6 +5,7 @@ from flask import (
 	make_response
 	)
 from backend import house_price
+from waitress import serve
 
 app = Flask(__name__)
 house = house_price()
@@ -23,4 +24,4 @@ def price():
 	return render_template("prediction.html", price=get_price)
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	serve(app)
